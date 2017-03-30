@@ -1,0 +1,13 @@
+{
+    "name": "MSDBW-MySQL-Microservice",
+    "version": "0.0.0",
+    "description": "Node.js for creating the MySQL microservice (JSON) for the Cloud Native Microservice-DB Workshop",
+    "main": "server.js",
+    "author": "john.hennen@oracle.com",
+    "scripts": {
+        "prepublish": "zip -r target/msdbw-mysqlmicroservice.zip mysql manifest.json *.js"
+    },
+    "engines": {
+        "node": ">=0.12.0"
+    }
+}
