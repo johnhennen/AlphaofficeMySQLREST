@@ -7,6 +7,8 @@ var tab2 = "      ";
 var tab3 = "         ";
 var tab4 = "            ";
 var tab5 = "               ";
+var uneditedVar = "      {\r\n         \"category\":\"**\",\r\n         \"productName\":\"THE WORKSHOP MYSQL MICROSERVICE SERVER.JS CODE HAS NOT BEEN EDITED.\",\r\n" +
+    "         \"twitterTag\":\"**\"\r\n      }\r\n   ]\r\n}\r\n";
 
 // USE THE MYSQL NODE.JS CODE LOCATED IN THE MYSQL SUBFOLDER TO CREATE A CONNECTION OBJECT WITH APPROPRIATE VALUES FOR CONNECTING TO THE MYSQL DB IN THE ORACLE CLOUD SERVICE.
 
@@ -48,7 +50,8 @@ response.writeHead(200, {
     /*********************************************************    
     UNCOMMENT THE CODE SECTION BELOW FOR THE WORKSHOP - THIS SECTION ASSEMBLES AND RETURNS THE DATABASE PRODUCT DATA.      
     *********************************************************/  
-    /*  
+    /*
+    uneditedVar = "";
     for (var i in resultsArray) {
         if (i > 0) {
             response.write(tab2 + "},\r\n");          
@@ -64,7 +67,8 @@ response.writeHead(200, {
     */
     /*********************************************************    
     UNCOMMENT THE CODE SECTION ABOVE FOR THE WORKSHOP.    
-    *********************************************************/    
+    *********************************************************/
+    response.write(uneditedVar); // DOES NOTHING IF SECTION ABOVE IS UNCOMMENTED       
     response.end();
 }).listen(8002);
 
