@@ -9,6 +9,10 @@ var tab4 = "            ";
 var tab5 = "               ";
 
 // USE THE MYSQL NODE.JS CODE LOCATED IN THE MYSQL SUBFOLDER TO CREATE A CONNECTION OBJECT WITH APPROPRIATE VALUES FOR CONNECTING TO THE MYSQL DB IN THE ORACLE CLOUD SERVICE.
+
+/*********************************************************    
+CHANGE THE MYSQL CONNECTION PARMETERS BELOW FOR THE WORKSHOP - THIS WILL VARY BY WORKSHOP.    
+*********************************************************/ 
 var connection = mysql.createConnection({
     host     : '141.145.24.235',
     port     : '1521',
@@ -16,6 +20,9 @@ var connection = mysql.createConnection({
     password : 'flUEnt@0Fate',
     database : 'AlphaofficeDB'
 });
+/*********************************************************    
+CHANGE THE MYSQL CONNECTION PARMETERS ABOVE FOR THE WORKSHOP.    
+*********************************************************/ 
 
 // PERFORM A QUERY USING THE SYNTAX IN THE SQLVAR VARIABLE.  THE RESULTING ROWS WILL BE WRITTEN TO THE RESULTSARRAY ARRAY.
 connection.connect();
@@ -28,7 +35,7 @@ connection.query(sqlVar, function (error, results, fields) {
 });
 connection.end();
 
-// GENERATE AND RETURN A JSON FILE USING ROW VALUES SELECTED FROM THE DATABASE.
+// GENERATE AND RETURN A JSON STRING (LIKE A FILE) USING ROW VALUES SELECTED FROM THE DATABASE.
 http.createServer(function(request, response) {
 response.writeHead(200, {
     'Access-Control-Allow-Origin' : '*',
@@ -41,7 +48,7 @@ response.writeHead(200, {
     /*********************************************************    
     UNCOMMENT THE CODE SECTION BELOW FOR THE WORKSHOP - THIS SECTION ASSEMBLES AND RETURNS THE DATABASE PRODUCT DATA.      
     *********************************************************/  
-      
+    /*  
     for (var i in resultsArray) {
         if (i > 0) {
             response.write(tab2 + "},\r\n");          
@@ -54,7 +61,7 @@ response.writeHead(200, {
     response.write(tab2 + "}\r\n");  
     response.write(tab1 + "]\r\n"); 
     response.write("}\r\n");  
-
+    */
     /*********************************************************    
     UNCOMMENT THE CODE SECTION ABOVE FOR THE WORKSHOP.    
     *********************************************************/    
