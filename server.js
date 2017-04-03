@@ -70,7 +70,7 @@ response.writeHead(200, {
     *********************************************************/
     response.write(uneditedVar); // DOES NOTHING IF SECTION ABOVE IS UNCOMMENTED       
     response.end();
-}).listen(8002);
+}).listen(process.env.PORT || 8002);
 
 // REMOVE ANY NON-DISPLAYABLE CHARACTERS.
 function cleanseValues(textParm) {
