@@ -9,6 +9,7 @@ var tab4 = "            ";
 var tab5 = "               ";
 var uneditedVar = "      {\r\n         \"category\":\"**\",\r\n         \"productName\":\"THE WORKSHOP MYSQL MICROSERVICE SERVER.JS CODE HAS NOT BEEN EDITED.\",\r\n" +
     "         \"twitterTag\":\"**\"\r\n      }\r\n   ]\r\n}\r\n";
+var sqlVar = "SELECT c.category_name, p.product_name, p.twitter_tag FROM `PRODUCTS` AS p INNER JOIN `PRODUCT_CATEGORIES` AS c ON c.category_id = p.category_id ORDER BY c.category_name, p.product_name";
 
 // USE THE MYSQL NODE.JS CODE LOCATED IN THE MYSQL SUBFOLDER TO CREATE A CONNECTION OBJECT WITH APPROPRIATE VALUES FOR CONNECTING TO THE MYSQL DB IN THE ORACLE CLOUD SERVICE.
 
@@ -26,18 +27,7 @@ var connection = mysql.createConnection({
 CHANGE THE MYSQL CONNECTION PARMETERS ABOVE FOR THE WORKSHOP.    
 *********************************************************/ 
 
-// PERFORM A QUERY USING THE SYNTAX IN THE SQLVAR VARIABLE.  THE RESULTING ROWS WILL BE WRITTEN TO THE RESULTSARRAY ARRAY.
-connection.connect();
-var sqlVar = "SELECT c.category_name, p.product_name, p.twitter_tag FROM `PRODUCTS` AS p INNER JOIN `PRODUCT_CATEGORIES` AS c ON c.category_id = p.category_id ORDER BY c.category_name, p.product_name";
-connection.query(sqlVar, function (error, results, fields) {
-    if (error){
-        console.log(error);
-    }
-    resultsArray = results;
-});
-connection.end();
-
-// GENERATE AND RETURN A JSON STRING (LIKE A FILE) USING ROW VALUES SELECTED FROM THE DATABASE.
+// GENERATE AND RETURN A JSON STRING USING ROW VALUES SELECTED FROM THE DATABASE.
 http.createServer(function(request, response) {
 response.writeHead(200, {
     'Access-Control-Allow-Origin' : '*',
@@ -52,6 +42,17 @@ response.writeHead(200, {
     *********************************************************/  
     /*
     uneditedVar = "";
+    
+    // PERFORM A QUERY USING THE SYNTAX IN THE SQLVAR VARIABLE.  THE RESULTING ROWS WILL BE WRITTEN TO THE RESULTSARRAY ARRAY.
+    connection.connect();
+    connection.query(sqlVar, function (error, results, fields) {
+        if (error){
+            console.log(error);
+        }
+        resultsArray = results;
+    });
+    connection.end();    
+        
     for (var i in resultsArray) {
         if (i > 0) {
             response.write(tab2 + "},\r\n");          
@@ -80,5 +81,3 @@ function cleanseValues(textParm) {
     return textVar;
 }
 
-
- 
