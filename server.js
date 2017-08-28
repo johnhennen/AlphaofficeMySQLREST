@@ -9,9 +9,7 @@ var tab4 = "            ";
 var tab5 = "               ";
 var uneditedVar = "      {\r\n         \"category\":\"**\",\r\n         \"productName\":\"THE WORKSHOP MYSQL MICROSERVICE SERVER.JS CODE HAS NOT BEEN EDITED.\",\r\n" +
     "         \"twitterTag\":\"**\"\r\n      }\r\n   ]\r\n}\r\n";
-var sqlVar = "SELECT c.category_name, p.product_name, p.twitter_tag FROM `PRODUCTS` AS p INNER JOIN `PRODUCT_CATEGORIES` AS c ON c.category_id = p.category_id ORDER BY c.category_name, 
-
-p.product_name";
+var sqlVar = "SELECT c.category_name, p.product_name, p.twitter_tag FROM `PRODUCTS` AS p INNER JOIN `PRODUCT_CATEGORIES` AS c ON c.category_id = p.category_id ORDER BY c.category_name, p.product_name";
 
 // USE THE MYSQL NODE.JS CODE LOCATED IN THE MYSQL SUBFOLDER TO CREATE A CONNECTION OBJECT WITH APPROPRIATE VALUES FOR CONNECTING TO THE MYSQL DB IN THE ORACLE CLOUD SERVICE.
 
